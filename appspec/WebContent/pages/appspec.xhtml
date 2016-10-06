@@ -1,0 +1,75 @@
+<ui:composition template="../templates/templatePrincipal.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<ui:define name="principal">
+
+		<ui:include src="../message.xhtml" />
+
+
+		<h:form id="frmAppSpec" style="font-size:60%">
+			<p:panel style="margin-bottom:10px;">
+				<h:panelGrid columns="2" style="margin-bottom:10px">
+
+					<h:outputLabel for="name" value="Name: *" />
+					<p:inputText id="name" value="#{appMBean.app.name}" size="50"
+						maxlength="45" required="true"
+						requiredMessage="The Name field is obrigatory!!!" />
+
+					<h:outputLabel for="purpose" value="Purpose: *" />
+					<p:inputText id="purpose" value="#{appMBean.app.purpose}"
+						size="50" maxlength="45" required="true"
+						requiredMessage="The purpose field is obrigatory!!!" />
+
+
+					<h:outputLabel for="environments" value="Environments: *" />
+					<p:inputText id="environments" value="#{appMBean.app.environments}"
+						size="50" maxlength="45" required="true"
+						requiredMessage="The Environments field is obrigatory!!!" />
+						
+					<h:outputLabel for="authmethod" value="Authentication method: " />					
+					<p:selectOneMenu id="authmethod"
+						value="#{appMBean.authMethod}" converter="authMethodConverter"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{appMBean.authMethods}"  />
+						
+					</p:selectOneMenu>
+					
+					<h:outputLabel for="dataclassificaton" value="Data classificaton: " />					
+					<p:selectOneMenu id="dataClassification"
+						value="#{appMBean.dataClassification}" converter="dataClassificationConverter"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{appMBean.dataClassifications}"  />
+						
+					</p:selectOneMenu>
+					
+					<h:outputLabel for="appclassification" value="Application classification: " />					
+					<p:selectOneMenu id="appclassification"
+						value="#{appMBean.appClassification}" converter="appClassificationConverter"
+						effect="fold">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{appMBean.appClassifications}"  />						
+					</p:selectOneMenu>
+					
+				
+						
+
+					<p:commandButton update=":frmAppSpec" ajax="false"
+						actionListener="#{appMBean.save}" value="Save" />
+
+
+
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
