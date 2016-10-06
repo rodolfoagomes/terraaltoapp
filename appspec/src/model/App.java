@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
-
+ 
 /**
  * The persistent class for the APP database table.
  * 
