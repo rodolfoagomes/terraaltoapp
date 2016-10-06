@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="appspec"
+		transaction-type="RESOURCE_LOCAL"> 
+
+	
+		<class>model.App</class>
+		<class>model.AuthMethod</class>
+		<class>model.DataClassification</class>
+		<class>model.Log</class>
+		<class>model.User</class>
+		<class>model.AppClassification</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://appspec.cjv0rtfmwlxg.eu-west-1.rds.amazonaws.com:3306/appspec" />
+			<property name="javax.persistence.jdbc.user" value="terraalto" />
+			<property name="javax.persistence.jdbc.password" value="terraalto" />
+			
+			<property name="connection.autocommit" value="true" />
+			
+			
+			
+		
+			
+		</properties>
+	</persistence-unit>
+</persistence>
+
